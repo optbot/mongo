@@ -10,4 +10,4 @@ Usage
 
 2.  Build `mongo`:
 
-        $ grunt
+        $ sudo grunt
