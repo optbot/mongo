@@ -20,6 +20,6 @@
   "gitHead": "2c11de9333ca6ba920bd670ad637fdf50f99f323",
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-exec": "~0.4.6"
+    "shelljs": "~0.4.0"
   }
 }
