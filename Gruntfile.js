@@ -1,5 +1,11 @@
 module.exports = function(grunt) {
-    grunt.registerTask('default', 'default task description', function() {
-        console.log('hello world');
+    grunt.initConfig({
+        exec: {
+            echo_hello: 'echo "hello"'
+        }
     });
+
+    grunt.loadNpmTasks('grunt-exec');
+
+    grunt.registerTask('default', ['exec']);
 };
