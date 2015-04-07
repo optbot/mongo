@@ -3,22 +3,21 @@ module.exports = function(grunt) {
      * shelljs : http://documentup.com/arturadib/shelljs
      * mongoDB : http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
      */
-    var shell = require('shelljs');
+    var shell = require('shelljs'),
+        execCmd = function(cmd, i, arr) {
+            shell.exec(cmd)
+        };
     
     grunt.registerTask('stopdb', 'Stop the current db gracefully', function() {
         var cmds = ['service mongod stop'];
 
-        cmds.forEach(function(cmd, i, arr) {
-            shell.exec(cmd);
-        });
+        cmds.forEach(execCmd);
     });
 
     grunt.registerTask('restartdb', 'Restart mongoDB', function() {
         var cmds = ['service mongod start'];
 
-        cmds.forEach(function(cmd, i, arr) {
-            shell.exec(cmd);
-        });
+        cmds.forEach(execCmd);
     });
 
     grunt.registerTask('remove', 'Uninstall mongoDB and delete all data', function() {
@@ -35,9 +34,7 @@ module.exports = function(grunt) {
         ];
 
         grunt.warn("You are deleting mongoDB and ALL mongoDB data!!")
-        cmds.forEach(function(cmd, i, arr) {
-            shell.exec(cmd);
-        });
+        cmds.forEach(execCmd);
     });
 
     grunt.registerTask('default', function() {
@@ -54,8 +51,6 @@ module.exports = function(grunt) {
             'apt-get install -y mongodb-org=3.0.1'
         ];
         
-        cmds.forEach(function(cmd, i, arr) {
-            shell.exec(cmd);
-        });
+        cmds.forEach(execCmd);
     });
 };
