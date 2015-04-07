@@ -25,6 +25,9 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', function() {
         var cmds = [
+                'mkdir -p /mnt/disk1/var/lib/mongodb',
+                'chown mongodb:mongodb /mnt/disk1/var/lib/mongodb',
+                'ln -s /mnt/disk1/var/lib/mongodb /var/lib',
                 'mkdir -p /mnt/disk1/var/log/mongodb',
                 'chown mongodb:mongodb /mnt/disk1/var/log/mongodb',
                 'ln -s /mnt/disk1/var/log/mongodb /var/log',
